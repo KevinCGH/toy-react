@@ -31,6 +31,10 @@ export class Component {
   get root() {
     if (!this._root) {
       this._root = this.render().root;
+      // add attributes
+      for (let p in this.props) {
+        this._root.setAttribute(p, this.props[p]);
+      }
     }
     return this._root;
   }
